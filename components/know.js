@@ -82,7 +82,7 @@ const Know = () => {
   }, []);
 
   return (
-    <section>
+    <section >
       <h1 ref={h1Ref} className='text-5xl text-center  font-serif py-6'></h1>
       <div ref={sectionRef} className='grid grid-cols-2 space-x-2 space-y-2 h-screen py-2 px-2'>
         <div className='bg-[#877c73] rounded-l-2xl rounded-e-md'>

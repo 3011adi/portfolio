@@ -9,9 +9,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Add or modify sites here
 const SHOWCASE_SITES = [
-  { name: "EcomStore", url: "https://ecomstore-six.vercel.app" },
+  { name: "Drag and drop website buildr", url: "https://www.webpagebuildr.com/know" },
   { name: "autum ", url: "https://aut-rho.vercel.app/" },
-  { name: "Project ", url: "https://your-project-3-url.com" },
+  { name: "online compiler with gpt", url: "https://ad-compiler.vercel.app" },
+  { name: "EcomStore", url: "https://ecomstore-six.vercel.app" },
   // Add more sites as needed
 ];
 
@@ -101,12 +102,24 @@ const Projects = () => {
           </div>
         </div>
         <div className="mt-8 text-center">
-          <p className=" text-xl font-serif mb-4">
-            Currently showing: {SHOWCASE_SITES[currentSiteIndex].name}
-          </p>
+        <p className="text-xl font-serif mb-4">
+  Currently showing:
+</p>
+<p className="text-lg">
+  <strong>{SHOWCASE_SITES[currentSiteIndex].name}</strong>
+  <br />
+  <a 
+    href={SHOWCASE_SITES[currentSiteIndex].url} 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="text-blue-500 underline"
+  >
+    {SHOWCASE_SITES[currentSiteIndex].url}
+  </a>
+</p>
           <button 
             onClick={changeWebsite}
-            className="px-6 py-3 bg-[#877c73] text-white font-serif rounded-full font-bold hover:bg-[#3e3834] transition-colors"
+            className="px-6 py-3 bg-[#877c73] mt-3 text-white font-serif rounded-full font-bold hover:bg-[#3e3834] transition-colors"
           >
             Next Project
           </button>

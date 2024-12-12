@@ -48,7 +48,7 @@ export default function Layout() {
       
       <section 
         ref={animSectionRef} 
-        className="min-h-screen w-full bg-pink-300 flex items-center justify-center"
+        className="h-[500px] lg:h-screen w-full  flex items-center justify-center"
       >
         <Anim />
       </section>

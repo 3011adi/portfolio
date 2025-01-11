@@ -9,10 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Add or modify sites here
 const SHOWCASE_SITES = [
-  { name: "Drag and drop website buildr", url: "https://www.webpagebuildr.com/know" },
+  { name: "Drag and drop website buildr", url: "https://www.webpagebuildr.com" },
   { name: "autum ", url: "https://aut-rho.vercel.app/" },
   { name: "online compiler with gpt", url: "https://ad-compiler.vercel.app" },
   { name: "EcomStore", url: "https://ecomstore-six.vercel.app" },
+  { name: "AI blogs", url: "http://thinkai-blog.vercel.app" },
   // Add more sites as needed
 ];
 

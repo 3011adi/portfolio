@@ -59,7 +59,7 @@ const About = () => {
       
       <div className='text-center relative z-10'>
         <div className='about'>
-          <h1 className='text-5xl text-center font-mono text-emerald-400 tracking-tight mb-8 transform hover:scale-105 transition-transform duration-300'>
+          <h1 className='text-5xl sm:pt-10 text-center font-mono text-emerald-400 tracking-tight mb-8 transform hover:scale-105 transition-transform duration-300'>
             About
           </h1>
           <div className='flex justify-center my-4'>

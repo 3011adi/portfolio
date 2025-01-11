@@ -80,31 +80,36 @@ const Home = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="flex h-screen items-center justify-center bg-gray-200">
+    <div ref={sectionRef}  className="bg-gradient-to-b from-slate-900 to-slate-800 min-h-screen flex items-center justify-center text-white"
+    >
       <div className="h-[60%] pt-20">
-        <h1 
-          ref={adiTextRef} 
-          className="adi-text font-serif text-8xl text-start pl-6"
-        >
-          Adi
-        </h1>
-        <h1 
-          ref={naikTextRef} 
-          className="naik-text font-serif text-8xl text-end pr-6"
-        >
-          Naik
-        </h1>
+      <h1
+            ref={adiTextRef}
+            className="font-mono text-8xl text-start pl-6 text-emerald-400 tracking-tight transform hover:scale-105 transition-transform duration-300"
+          >
+            Adi
+          </h1>
+          <h1
+            ref={naikTextRef}
+            className="font-mono text-8xl text-end pr-6 text-emerald-400 tracking-tight transform hover:scale-105 transition-transform duration-300"
+          >
+            Naik
+          </h1>
         <div 
           ref={adiImageRef} 
           className="adi-image pt-16"
         >
-          <Image 
-            className="pt-16" 
-            src={adi} 
-            width={300} 
-            height={300} 
-            alt="Adi Naik" 
-          />
+          <div className="relative">
+              <div className="absolute inset-0 bg-emerald-400/20 rounded-full filter blur-xl animate-pulse"></div>
+              <Image
+                className="relative z-10 transform hover:scale-105 transition-transform duration-300 rounded-full "
+                src={adi}
+                width={300}
+                height={300}
+                alt="Adi Naik"
+              />
+            </div>
+          
         </div>
       </div>
     </div>

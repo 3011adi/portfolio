@@ -41,7 +41,8 @@ export default function Layout() {
   }, []);
 
   return (
-    <div className="bg-gray-200">
+    <div className="bg-gradient-to-b from-slate-900 to-slate-800">
+      
       <section className="my-[15%]">
         <Home />
       </section>
@@ -52,6 +53,7 @@ export default function Layout() {
       >
         <Anim />
       </section>
+      
       
       <Know />
       

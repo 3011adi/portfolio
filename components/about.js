@@ -52,7 +52,7 @@ const About = () => {
   return (
     <div
       ref={sectionRef}
-      className='bg-gradient-to-b from-slate-900 to-slate-800 min-h-[50vh] flex items-center justify-center relative'
+      className='bg-gradient-to-b from-slate-900 to-slate-800 min-h-[60vh] lg:min-h-[50vh] flex items-center justify-center relative'
     >
       {/* Background glow effect */}
       <div className="absolute inset-0 bg-emerald-400/5 filter blur-3xl"></div>

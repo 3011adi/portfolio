@@ -10,106 +10,121 @@ const Home = () => {
   const naikTextRef = useRef(null);
   const adiImageRef = useRef(null);
   const sectionRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    // Ensure GSAP and ScrollTrigger are properly imported
     gsap.registerPlugin(ScrollTrigger);
 
-    // Use refs directly instead of querySelector
-    const adiText = adiTextRef.current;
-    const naikText = naikTextRef.current;
-    const adiImage = adiImageRef.current;
-
     const animations = gsap.context(() => {
-      if (adiText) {
-        gsap.fromTo(adiText,
-          { opacity: 0, y: -80 },
-          { 
-            opacity: 1, 
-            y: 0, 
-            duration: 1, 
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: 'bottom 99%',
-              end: 'bottom 80%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        );
-      }
+      // Create smooth entrance animation
+      gsap.set([adiTextRef.current, naikTextRef.current, adiImageRef.current], {
+        opacity: 0,
+        y: 50
+      });
 
-      if (naikText) {
-        gsap.fromTo(naikText,
-          { opacity: 0, y: 100 },
-          { 
-            opacity: 1, 
-            y: 0, 
-            duration: 1, 
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: 'bottom 96%',
-              end: 'bottom 78%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        );
-      }
+      // Text animations
+      gsap.to(adiTextRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top center",
+          end: "bottom center",
+          toggleActions: "play none none reverse"
+        }
+      });
 
-      if (adiImage) {
-        gsap.fromTo(adiImage,
-          { opacity: 0, scale: 0.8 },
-          { 
-            opacity: 1, 
-            scale: 1, 
-            duration: 1, 
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: 'bottom 90%',
-              end: 'bottom 80%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        );
-      }
+      gsap.to(naikTextRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.4,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top center",
+          end: "bottom center",
+          toggleActions: "play none none reverse"
+        }
+      });
+
+      // Image animation with subtle float effect
+      gsap.to(adiImageRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        delay: 0.6,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top center",
+          end: "bottom center",
+          toggleActions: "play none none reverse"
+        }
+      });
+
+      // Add floating animation to image
+      gsap.to(adiImageRef.current, {
+        y: "-10px",
+        duration: 2,
+        ease: "power1.inOut",
+        yoyo: true,
+        repeat: -1
+      });
     }, sectionRef);
 
-    // Cleanup function
-    return () => {
-      animations.revert();
-    };
+    return () => animations.revert();
   }, []);
 
   return (
-    <div ref={sectionRef}  className="bg-gradient-to-b from-slate-900 to-slate-800 min-h-screen flex items-center justify-center text-white"
+    <div 
+      ref={sectionRef}
+      className="bg-gradient-to-b from-slate-900 to-slate-800 min-h-screen flex items-center justify-center"
     >
-      <div className="h-[60%] pt-20">
-      <h1
-            ref={adiTextRef}
-            className="font-mono text-8xl text-start pl-6 text-emerald-400 tracking-tight transform hover:scale-105 transition-transform duration-300"
+      <div 
+        ref={containerRef}
+        className="w-full  max-w-4xl mx-auto px-4 py-16"
+      >
+        <div className="flex flex-col items-center justify-center gap-8">
+          {/* Text Container */}
+          <div className="text-center  w-[50%] space-y-2">
+            <h1
+              ref={adiTextRef}
+              className="font-mono text-left text-8xl md:text-9xl text-emerald-400 tracking-tight transform hover:scale-105 transition-transform duration-300"
+            >
+              Adi
+            </h1>
+            <h1
+              ref={naikTextRef}
+              className="font-mono text-right text-8xl md:text-9xl text-emerald-400 tracking-tight transform hover:scale-105 transition-transform duration-300"
+            >
+              Naik
+            </h1>
+          </div>
+
+          {/* Image Container */}
+          <div
+            ref={adiImageRef}
+            className="relative mx-auto mt-12"
           >
-            Adi
-          </h1>
-          <h1
-            ref={naikTextRef}
-            className="font-mono text-8xl text-end pr-6 text-emerald-400 tracking-tight transform hover:scale-105 transition-transform duration-300"
-          >
-            Naik
-          </h1>
-        <div 
-          ref={adiImageRef} 
-          className="adi-image pt-16"
-        >
-          <div className="relative">
-              <div className="absolute inset-0 bg-emerald-400/20 rounded-full filter blur-xl animate-pulse"></div>
+            {/* Glow Effect */}
+            <div className="absolute inset-0 bg-emerald-400/20 rounded-full filter blur-3xl animate-pulse scale-110"></div>
+            
+            {/* Image */}
+            <div className="relative">
               <Image
-                className="relative z-10 transform hover:scale-105 transition-transform duration-300 rounded-full "
+                className="rounded-full transform hover:scale-105 transition-transform duration-300 "
                 src={adi}
-                width={300}
-                height={300}
+                width={320}
+                height={320}
                 alt="Adi Naik"
+                priority
               />
             </div>
-          
+          </div>
         </div>
       </div>
     </div>
